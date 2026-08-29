@@ -207,7 +207,7 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
             setCompletedPayload({
               type: 'PHOTO',
               content: parsed.d,
-              fileName: parsed.n || 'bhejo_photo.jpg',
+              fileName: parsed.n || 'share_photo.jpg',
             });
           }
 
@@ -374,7 +374,7 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
               <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                 <a
                   href={completedPayload.content}
-                  download={completedPayload.fileName || `bhejo-photo-${Date.now()}.jpg`}
+                  download={completedPayload.fileName || `share-photo-${Date.now()}.jpg`}
                   className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-3.5 px-6 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/25 transition-all active:scale-98"
                 >
                   <Download size={18} />

@@ -30,7 +30,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
   const isDark = theme === 'dark';
   const [contentType, setContentType] = useState<'TEXT' | 'PHOTO'>('TEXT');
   const [textMessage, setTextMessage] = useState(
-    'Welcome to Bhejo! Fast screen-to-camera optical transfer with zero internet ✨'
+    'Welcome to Share! Fast screen-to-camera optical transfer with zero internet ✨'
   );
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [photoName, setPhotoName] = useState<string>('');
@@ -175,7 +175,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
   };
 
   const sampleTexts = [
-    'Hello! Glad to connect via Bhejo 👋',
+    'Hello! Glad to connect via Share 👋',
     'WiFi: HomeOffice | Password: secretKey2026',
     'Meet me at the main gate at 4:30 PM 📍',
   ];
@@ -730,7 +730,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
             <div className="flex items-center space-x-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
               <span className="font-bold text-sm sm:text-base tracking-wide">
-                Bhejo Fullscreen Stream
+                Share Fullscreen Stream
               </span>
             </div>
             <button

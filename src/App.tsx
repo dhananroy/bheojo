@@ -6,21 +6,21 @@ import {
   Smartphone,
   Sun,
   Moon,
-  QrCode,
+  Share2,
 } from 'lucide-react';
 import { SimpleQrSender } from './components/SimpleQrSender';
 import { SimpleQrReceiver } from './components/SimpleQrReceiver';
 
 export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const saved = localStorage.getItem('bhejo_theme');
+    const saved = localStorage.getItem('share_theme');
     return saved === 'dark' ? 'dark' : 'light';
   });
 
   const [activeTab, setActiveTab] = useState<'SEND' | 'RECEIVE'>('SEND');
 
   useEffect(() => {
-    localStorage.setItem('bhejo_theme', theme);
+    localStorage.setItem('share_theme', theme);
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
@@ -54,10 +54,10 @@ export default function App() {
           {/* Left: Minimal Logo */}
           <div className="flex items-center space-x-2.5">
             <div className="w-8 h-8 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-xs">
-              <QrCode size={18} className="stroke-[2.2]" />
+              <Share2 size={18} className="stroke-[2.2]" />
             </div>
             <span className="text-base font-black tracking-tight text-blue-600 dark:text-blue-400">
-              Bhejo
+              Share
             </span>
           </div>
 
@@ -151,7 +151,7 @@ export default function App() {
             }`}
           >
             <Smartphone size={14} className="text-blue-600" />
-            <span>How Bhejo works between 2 devices:</span>
+            <span>How Share works between 2 devices:</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px]">
@@ -210,7 +210,7 @@ export default function App() {
             }`}
           >
             <ShieldCheck size={14} className="text-emerald-500" />
-            <span>Bhejo • 100% Offline Optical Data Stream</span>
+            <span>Share • 100% Offline Optical Data Stream</span>
           </div>
           <div className={isDark ? 'text-slate-500' : 'text-slate-400'}>
             Screen-to-Camera transfer • No accounts, no servers
