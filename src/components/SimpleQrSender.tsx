@@ -106,7 +106,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
     if (!currentChunk) return;
 
     const qrOptions: QRCode.QRCodeRenderersOptions = {
-      width: 340,
+      scale: 8,
       margin: 1,
       color: {
         dark: '#090d16',
@@ -118,6 +118,12 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
     if (canvasRef.current) {
       QRCode.toCanvas(canvasRef.current, currentChunk, qrOptions, (err) => {
         if (err) console.error('QR Render error:', err);
+        if (canvasRef.current) {
+          canvasRef.current.style.width = '100%';
+          canvasRef.current.style.height = '100%';
+          canvasRef.current.style.display = 'block';
+          canvasRef.current.style.imageRendering = 'pixelated';
+        }
       });
     }
 
@@ -127,11 +133,17 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
         currentChunk,
         {
           ...qrOptions,
-          width: 440,
-          margin: 2,
+          scale: 12,
+          margin: 1,
         },
         (err) => {
           if (err) console.error('Fullscreen QR Render error:', err);
+          if (fullscreenCanvasRef.current) {
+            fullscreenCanvasRef.current.style.width = '100%';
+            fullscreenCanvasRef.current.style.height = '100%';
+            fullscreenCanvasRef.current.style.display = 'block';
+            fullscreenCanvasRef.current.style.imageRendering = 'pixelated';
+          }
         }
       );
     }
@@ -578,21 +590,24 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
 
             {/* RESPONSIVE QR CODE CONTAINER - Fits perfectly on any screen */}
             {chunks.length > 0 ? (
-              <div className="w-full flex flex-col items-center">
-                {/* QR Canvas — fills full column width, no extra padding wrapper */}
-                <div className={`w-full rounded-2xl overflow-hidden border-2 ${
-                  isDark
-                    ? 'border-slate-700/80'
-                    : 'border-slate-200/90'
-                }`}>
+              <div className="w-full flex flex-col items-center justify-center">
+                {/* QR Canvas — perfectly centered with clean border and responsive sizing */}
+                <div
+                  className={`w-full max-w-[260px] xs:max-w-[290px] sm:max-w-[320px] md:max-w-[340px] aspect-square rounded-2xl overflow-hidden border-2 transition-all flex items-center justify-center bg-white ${
+                    isDark
+                      ? 'border-slate-700/80 shadow-md'
+                      : 'border-slate-200/90 shadow-sm'
+                  }`}
+                >
                   <canvas
                     ref={canvasRef}
-                    className="w-full aspect-square block"
+                    className="w-full h-full aspect-square block !w-full !h-full"
+                    style={{ width: '100%', height: '100%', imageRendering: 'pixelated' }}
                   />
                 </div>
 
-                {/* Progress & Current Frame Status */}
-                <div className="w-full mt-3 space-y-2">
+                {/* Progress & Current Frame Status - Centered & matching QR width */}
+                <div className="w-full max-w-[260px] xs:max-w-[290px] sm:max-w-[320px] md:max-w-[340px] mt-3 space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span
                       className={`font-bold ${
@@ -659,8 +674,9 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                   )}
                 </div>
 
-                {/* Compact Playback Controls Bar */}
-                <div className={`w-full mt-3 pt-3 border-t flex items-center justify-between gap-2 ${
+                {/* Compact Playback Controls Bar - Centered & matching QR width */}
+                <div
+                  className={`w-full max-w-[260px] xs:max-w-[290px] sm:max-w-[320px] md:max-w-[340px] mt-3 pt-3 border-t flex items-center justify-between gap-2 ${
                     isDark ? 'border-slate-800' : 'border-slate-100'
                   }`}
                 >
@@ -739,12 +755,14 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
             </button>
           </div>
 
-          <div className="rounded-2xl overflow-hidden border-4 border-slate-400/40 shadow-2xl"
-            style={{ width: 'min(85vmin, 520px)', height: 'min(85vmin, 520px)' }}
+          <div
+            className="rounded-2xl overflow-hidden border-4 border-slate-400/40 shadow-2xl bg-white flex items-center justify-center"
+            style={{ width: 'min(80vmin, 480px)', height: 'min(80vmin, 480px)' }}
           >
             <canvas
               ref={fullscreenCanvasRef}
-              className="w-full h-full block"
+              className="w-full h-full block !w-full !h-full"
+              style={{ width: '100%', height: '100%', imageRendering: 'pixelated' }}
             />
           </div>
 
