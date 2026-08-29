@@ -326,10 +326,10 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
               <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                 <button
                   onClick={handleCopyText}
-                  className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-3.5 px-6 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl shadow-lg shadow-blue-600/25 transition-all active:scale-98"
+                  className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-3.5 px-6 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl shadow-lg shadow-blue-600/25 transition-all active:scale-[0.98]"
                 >
                   {hasCopied ? <Check size={18} /> : <Copy size={18} />}
-                  <span>{hasCopied ? 'Copied to Clipboard! ✅' : 'Copy Text'}</span>
+                  <span>{hasCopied ? 'Copied to Clipboard!' : 'Copy Text'}</span>
                 </button>
 
                 <button
@@ -375,7 +375,7 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
                 <a
                   href={completedPayload.content}
                   download={completedPayload.fileName || `share-photo-${Date.now()}.jpg`}
-                  className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-3.5 px-6 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/25 transition-all active:scale-98"
+                  className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-3.5 px-6 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/25 transition-all active:scale-[0.98]"
                 >
                   <Download size={18} />
                   <span>Save Photo to Device</span>
@@ -398,7 +398,7 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
         </div>
       ) : (
         <div
-          className={`rounded-2xl p-4 sm:p-5 border shadow-xs transition-colors duration-200 ${
+          className={`rounded-2xl p-4 sm:p-5 border shadow-sm transition-colors duration-200 ${
             isDark
               ? 'bg-slate-900/80 border-slate-800 backdrop-blur'
               : 'bg-white border-slate-200/90 shadow-slate-200/50'
@@ -435,7 +435,7 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
                   onClick={toggleTorch}
                   className={`p-2 rounded-xl border text-xs font-semibold flex items-center space-x-1.5 transition-colors ${
                     isTorchOn
-                      ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-xs'
+                      ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-sm'
                       : isDark
                       ? 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
                       : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
@@ -482,10 +482,10 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
                     {/* Glowing Animated Scan line */}
                     <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent absolute top-1/2 -translate-y-1/2 animate-pulse" />
                     {/* Corner accents */}
-                    <div className="absolute -top-1 -left-1 w-4 h-4 border-t-3 border-l-3 border-emerald-400 rounded-tl-md" />
-                    <div className="absolute -top-1 -right-1 w-4 h-4 border-t-3 border-r-3 border-emerald-400 rounded-tr-md" />
-                    <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-3 border-l-3 border-emerald-400 rounded-bl-md" />
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-3 border-r-3 border-emerald-400 rounded-br-md" />
+                    <div className="absolute -top-1 -left-1 w-4 h-4 border-t-[3px] border-l-[3px] border-emerald-400 rounded-tl-md" />
+                    <div className="absolute -top-1 -right-1 w-4 h-4 border-t-[3px] border-r-[3px] border-emerald-400 rounded-tr-md" />
+                    <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-[3px] border-l-[3px] border-emerald-400 rounded-bl-md" />
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-[3px] border-r-[3px] border-emerald-400 rounded-br-md" />
                   </div>
                 </div>
 
@@ -495,7 +495,7 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
                     <p className="text-[11px] text-rose-300 max-w-xs">{cameraError}</p>
                     <button
                       onClick={() => startCamera()}
-                      className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-xl shadow-xs transition-colors"
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-xl shadow-sm transition-colors"
                     >
                       Try Camera Again
                     </button>
@@ -575,7 +575,7 @@ export const SimpleQrReceiver: React.FC<SimpleQrReceiverProps> = ({ theme }) => 
                             key={idx}
                             className={`h-5 min-w-5 px-1 rounded-md flex items-center justify-center text-[10px] font-bold transition-all ${
                               isDone
-                                ? 'bg-emerald-500 text-white shadow-xs'
+                                ? 'bg-emerald-500 text-white shadow-sm'
                                 : isDark
                                 ? 'bg-slate-800 text-slate-500'
                                 : 'bg-slate-200 text-slate-400'

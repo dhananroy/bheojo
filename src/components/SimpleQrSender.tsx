@@ -30,7 +30,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
   const isDark = theme === 'dark';
   const [contentType, setContentType] = useState<'TEXT' | 'PHOTO'>('TEXT');
   const [textMessage, setTextMessage] = useState(
-    'Welcome to Share! Fast screen-to-camera optical transfer with zero internet ✨'
+    'Welcome to Share! Fast screen-to-camera optical transfer with zero internet'
   );
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [photoName, setPhotoName] = useState<string>('');
@@ -175,9 +175,9 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
   };
 
   const sampleTexts = [
-    'Hello! Glad to connect via Share 👋',
+    'Hello! Glad to connect via Share',
     'WiFi: HomeOffice | Password: secretKey2026',
-    'Meet me at the main gate at 4:30 PM 📍',
+    'Meet me at the main gate at 4:30 PM',
   ];
 
   const handlePrevFrame = () => {
@@ -209,7 +209,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
         {/* LEFT COLUMN: Data Input & Speed Controls */}
         <div className="lg:col-span-6 space-y-4">
           <div
-            className={`rounded-2xl p-4 sm:p-5 transition-colors duration-200 border shadow-xs ${
+            className={`rounded-2xl p-4 sm:p-5 transition-colors duration-200 border shadow-sm ${
               isDark
                 ? 'bg-slate-900/80 border-slate-800 backdrop-blur'
                 : 'bg-white border-slate-200/90 shadow-slate-200/50'
@@ -218,7 +218,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
             {/* Header & Type Switcher */}
             <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/80 dark:border-slate-800">
               <div className="flex items-center space-x-2">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs shadow-xs">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs shadow-sm">
                   1
                 </span>
                 <h2
@@ -241,7 +241,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                   onClick={() => setContentType('TEXT')}
                   className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all ${
                     contentType === 'TEXT'
-                      ? 'bg-blue-600 text-white shadow-xs'
+                      ? 'bg-blue-600 text-white shadow-sm'
                       : isDark
                       ? 'text-slate-400 hover:text-slate-200'
                       : 'text-slate-600 hover:text-slate-900'
@@ -256,7 +256,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                   onClick={() => setContentType('PHOTO')}
                   className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all ${
                     contentType === 'PHOTO'
-                      ? 'bg-blue-600 text-white shadow-xs'
+                      ? 'bg-blue-600 text-white shadow-sm'
                       : isDark
                       ? 'text-slate-400 hover:text-slate-200'
                       : 'text-slate-600 hover:text-slate-900'
@@ -356,7 +356,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                         <Upload size={20} />
                       </div>
                       <div>
-                        <span className="inline-block px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-xs transition-all">
+                        <span className="inline-block px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-sm transition-all">
                           {photoPreview ? 'Change Photo' : 'Select Photo'}
                         </span>
                       </div>
@@ -381,7 +381,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                       <img
                         src={photoPreview}
                         alt="Preview"
-                        className="w-10 h-10 object-cover rounded-lg border border-slate-300 dark:border-slate-700 shadow-xs"
+                        className="w-10 h-10 object-cover rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm"
                       />
                       <div className="flex-1 min-w-0">
                         <p
@@ -428,7 +428,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                   onClick={() => setSpeed('SLOW')}
                   className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                     speed === 'SLOW'
-                      ? 'bg-blue-600 text-white shadow-xs'
+                      ? 'bg-blue-600 text-white shadow-sm'
                       : isDark
                       ? 'text-slate-400 hover:text-slate-200'
                       : 'text-slate-600 hover:text-slate-900'
@@ -440,7 +440,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                   onClick={() => setSpeed('NORMAL')}
                   className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                     speed === 'NORMAL'
-                      ? 'bg-blue-600 text-white shadow-xs'
+                      ? 'bg-blue-600 text-white shadow-sm'
                       : isDark
                       ? 'text-slate-400 hover:text-slate-200'
                       : 'text-slate-600 hover:text-slate-900'
@@ -452,7 +452,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                   onClick={() => setSpeed('FAST')}
                   className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                     speed === 'FAST'
-                      ? 'bg-blue-600 text-white shadow-xs'
+                      ? 'bg-blue-600 text-white shadow-sm'
                       : isDark
                       ? 'text-slate-400 hover:text-slate-200'
                       : 'text-slate-600 hover:text-slate-900'
@@ -469,7 +469,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
             className={`rounded-2xl p-3 sm:p-4 border transition-colors duration-200 ${
               isDark
                 ? 'bg-slate-900/40 border-slate-800/80 text-slate-300'
-                : 'bg-white/80 border-slate-200/80 text-slate-700 shadow-xs'
+                : 'bg-white/80 border-slate-200/80 text-slate-700 shadow-sm'
             }`}
           >
             <div className="grid grid-cols-2 gap-2.5 text-xs">
@@ -524,7 +524,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
         {/* RIGHT COLUMN: Big QR Display Stage with Responsive Fit */}
         <div className="lg:col-span-6 space-y-4">
           <div
-            className={`rounded-2xl p-4 sm:p-5 transition-colors duration-200 border shadow-xs flex flex-col items-center ${
+            className={`rounded-2xl p-4 sm:p-5 transition-colors duration-200 border shadow-sm flex flex-col items-center ${
               isDark
                 ? 'bg-slate-900/80 border-slate-800 backdrop-blur'
                 : 'bg-white border-slate-200/90 shadow-slate-200/50'
@@ -533,7 +533,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
             {/* Top Stage Header */}
             <div className="w-full flex items-center justify-between pb-3 mb-3 border-b border-slate-200/80 dark:border-slate-800">
               <div className="flex items-center space-x-2">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-xs">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-sm">
                   2
                 </span>
                 <div>
@@ -578,23 +578,21 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
 
             {/* RESPONSIVE QR CODE CONTAINER - Fits perfectly on any screen */}
             {chunks.length > 0 ? (
-              <div className="w-full flex flex-col items-center justify-center">
-                {/* Scaled Canvas Frame */}
-                <div
-                  className={`relative p-2.5 sm:p-3 rounded-2xl transition-all max-w-full flex items-center justify-center ${
-                    isDark
-                      ? 'bg-white shadow-md border-2 border-slate-700/80'
-                      : 'bg-white shadow-sm border-2 border-slate-200/90'
-                  }`}
-                >
+              <div className="w-full flex flex-col items-center">
+                {/* QR Canvas — fills full column width, no extra padding wrapper */}
+                <div className={`w-full rounded-2xl overflow-hidden border-2 ${
+                  isDark
+                    ? 'border-slate-700/80'
+                    : 'border-slate-200/90'
+                }`}>
                   <canvas
                     ref={canvasRef}
-                    className="rounded-xl w-[200px] h-[200px] xs:w-[220px] xs:h-[220px] sm:w-[240px] sm:h-[240px] md:w-[250px] md:h-[250px] max-w-[80vw] max-h-[35vh] aspect-square object-contain block"
+                    className="w-full aspect-square block"
                   />
                 </div>
 
                 {/* Progress & Current Frame Status */}
-                <div className="w-full max-w-xs sm:max-w-sm mt-3 space-y-2">
+                <div className="w-full mt-3 space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span
                       className={`font-bold ${
@@ -647,9 +645,9 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                             setIsPlaying(false);
                             setCurrentFrameIndex(idx);
                           }}
-                          className={`h-2 rounded-xs transition-all duration-150 ${
+                          className={`h-2 rounded-sm transition-all duration-150 ${
                             idx === currentFrameIndex
-                              ? 'w-5 bg-blue-600 dark:bg-blue-400 scale-105 shadow-xs'
+                              ? 'w-5 bg-blue-600 dark:bg-blue-400 scale-105 shadow-sm'
                               : isDark
                               ? 'w-2 bg-slate-800 hover:bg-slate-700'
                               : 'w-2 bg-slate-300 hover:bg-slate-400'
@@ -662,8 +660,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                 </div>
 
                 {/* Compact Playback Controls Bar */}
-                <div
-                  className={`w-full max-w-xs sm:max-w-sm mt-3 pt-3 border-t flex items-center justify-between gap-2 ${
+                <div className={`w-full mt-3 pt-3 border-t flex items-center justify-between gap-2 ${
                     isDark ? 'border-slate-800' : 'border-slate-100'
                   }`}
                 >
@@ -684,7 +681,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
                   <button
                     id="toggle-playback-btn"
                     onClick={() => setIsPlaying(!isPlaying)}
-                    className={`flex-1 flex items-center justify-center space-x-1.5 py-2 px-3 rounded-xl text-xs font-bold transition-all shadow-xs ${
+                    className={`flex-1 flex items-center justify-center space-x-1.5 py-2 px-3 rounded-xl text-xs font-bold transition-all shadow-sm ${
                       isPlaying
                         ? isDark
                           ? 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
@@ -725,7 +722,7 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
 
       {/* FULLSCREEN QR EXPANDED MODAL (For effortless long-distance scanning) */}
       {isFullscreenQr && (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-between p-4 sm:p-8 animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-between p-4 sm:p-8 transition-opacity duration-200">
           <div className="w-full max-w-md flex items-center justify-between text-white">
             <div className="flex items-center space-x-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
