@@ -739,10 +739,12 @@ export const SimpleQrSender: React.FC<SimpleQrSenderProps> = ({ theme }) => {
             </button>
           </div>
 
-          <div className="p-3 sm:p-5 bg-white rounded-2xl shadow-2xl border-4 border-slate-400/40">
+          <div className="rounded-2xl overflow-hidden border-4 border-slate-400/40 shadow-2xl"
+            style={{ width: 'min(85vmin, 520px)', height: 'min(85vmin, 520px)' }}
+          >
             <canvas
               ref={fullscreenCanvasRef}
-              className="w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] max-w-[80vw] max-h-[55vh] rounded-xl aspect-square"
+              className="w-full h-full block"
             />
           </div>
 
