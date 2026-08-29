@@ -1,0 +1,10 @@
+{
+  "name": "Bhejo",
+  "description": "Bhejo - Simple and secure instant photo & message transfer between devices using animated QR codes.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
